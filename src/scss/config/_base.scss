@@ -5,3 +5,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  font-family: $font-family-primary;
+  font-size: $font-size-primary;
+  color: $font-color-white;
+}
+
+body {
+  background-color: $background-color-primary;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+}

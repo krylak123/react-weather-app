@@ -12,6 +12,7 @@
     "plugin:react/recommended",
     "airbnb"
   ],
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -62,6 +63,10 @@
         "devDependencies": false
       }
     ],
-    "react/jsx-filename-extension": "off"
+    "react/jsx-filename-extension": "off",
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ]
   }
 }

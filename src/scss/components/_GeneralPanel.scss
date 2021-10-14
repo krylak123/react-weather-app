@@ -1,0 +1,275 @@
+.general {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 11px;
+  height: 100vh;
+  background-color: $background-color-secondary;
+  overflow: hidden;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 70px);
+    width: 160%;
+    opacity: 0.1;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__header-btn {
+    font-family: $font-family-primary;
+    font-size: 0.8rem;
+    color: $font-color-white;
+    outline-style: none;
+    border-style: none;
+    background-color: $btn-background-color-1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+
+    &--search {
+      padding: 10px 18px;
+    }
+
+    &--tracking {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+  }
+  &__main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__img-container {
+    width: 60%;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__title {
+    font-size: 3rem;
+    color: $font-color-grey;
+    font-weight: 500;
+
+    &--value {
+      font-size: 9rem;
+      color: $font-color-white;
+    }
+  }
+
+  &__subtitle {
+    margin-top: 20px;
+    font-size: 2rem;
+    color: $font-color-grey;
+    font-weight: 600;
+  }
+
+  &__date-container {
+    margin: 40px 0 30px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__date {
+    font-size: 1.1rem;
+    color: $font-color-grey;
+  }
+
+  &__date-dot {
+    margin: 0 16px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: $font-color-grey;
+  }
+
+  &__city-container {
+    display: flex;
+  }
+
+  &__city {
+    margin-left: 10px;
+    font-weight: 500;
+  }
+
+  @media screen and (orientation: landscape) {
+    &__background {
+      left: 50%;
+      transform: translate(-50%, 25px);
+      width: 135%;
+      opacity: 0.1;
+    }
+
+    &__main {
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+
+    &__img-container {
+      width: 40%;
+    }
+
+    &__img {
+      width: 100%;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+
+      &--value {
+        font-size: 3rem;
+      }
+    }
+
+    &__subtitle {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+
+    &__date-container {
+      margin: 30px 0 30px;
+    }
+  }
+
+  @include mq(xxsmall, port) {
+    &__header-btn {
+      font-size: 1rem;
+    }
+
+    &__img-container {
+      width: 70%;
+    }
+  }
+
+  @include mq(xxsmall, land) {
+    &__header-btn {
+      font-size: 1rem;
+    }
+
+    &__img-container {
+      width: 50%;
+    }
+
+    &__title {
+      font-size: 2rem;
+
+      &--value {
+        font-size: 4rem;
+      }
+    }
+
+    &__subtitle {
+      font-size: 2rem;
+    }
+
+    &__date {
+      font-size: 1.5rem;
+    }
+
+    &__city {
+      font-size: 1.5rem;
+    }
+  }
+
+  @include mq(xsmall, port) {
+    &__img-container {
+      width: 100%;
+    }
+
+    &__title {
+      font-size: 3rem;
+
+      &--value {
+        font-size: 9rem;
+      }
+    }
+
+    &__subtitle {
+      font-size: 3rem;
+    }
+
+    &__date {
+      font-size: 2.5rem;
+    }
+
+    &__city {
+      font-size: 2rem;
+    }
+  }
+
+  @include mq(medium, land) {
+    flex-basis: 30%;
+
+    &__main {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &__title {
+      font-size: 2rem;
+
+      &--value {
+        font-size: 4rem;
+      }
+    }
+
+    &__subtitle {
+      font-size: 2rem;
+    }
+
+    &__date {
+      font-size: 1.5rem;
+    }
+
+    &__city {
+      font-size: 1.5rem;
+    }
+  }
+
+  @include mq(large, land) {
+    &__img-container {
+      width: 100%;
+    }
+
+    &__title {
+      font-size: 3rem;
+
+      &--value {
+        font-size: 9rem;
+      }
+    }
+
+    &__subtitle {
+      font-size: 2.5rem;
+    }
+
+    &__date {
+      font-size: 2rem;
+    }
+
+    &__city {
+      font-size: 2rem;
+    }
+  }
+}

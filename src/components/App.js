@@ -3,10 +3,12 @@ import classNames from 'classnames';
 
 import StoreProvider from '../stores/StoreProvider';
 
+import GeneralPanel from './GeneralPanel';
+
 const App = () => (
   <StoreProvider>
     <div className={classNames('wrapper')}>
-      <p>React App</p>
+      <GeneralPanel />
     </div>
   </StoreProvider>
 );

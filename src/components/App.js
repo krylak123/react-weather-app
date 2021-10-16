@@ -9,7 +9,7 @@ const App = () => {
 
   return (
     <div className={classNames('wrapper')}>
-      <Navigation isOpen={isMenuOpen} />
+      <Navigation isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
       <GeneralPanel setIsOpen={setIsMenuOpen} />
     </div>
   );

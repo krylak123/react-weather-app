@@ -6,6 +6,24 @@
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: $btn-background-color-1;
+  border-radius: 25px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: $btn-background-color-2;
+  border-radius: 25px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: darken($color: $btn-background-color-2, $amount: 10%);
+}
+
 html {
   font-family: $font-family-primary;
   font-size: $font-size-primary;

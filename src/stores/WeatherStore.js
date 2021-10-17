@@ -12,12 +12,25 @@ class WeatherStore {
       showWeather: action,
       addWeather: action,
       setPickedWeatherID: action,
+      loadDataFromLocalStorage: action,
     });
   }
 
+  loadDataFromLocalStorage = () => {
+    const state = JSON.parse(localStorage.getItem('WEATHERS_LIST'));
+
+    if (state) {
+      this.weathersList = state;
+    }
+  };
+
   showWeather = id => this.weathersList.find(item => item.id === id);
 
-  addWeather = weather => this.weathersList.unshift(weather);
+  addWeather = weather => {
+    this.weathersList.unshift(weather);
+
+    localStorage.setItem('WEATHERS_LIST', JSON.stringify(this.weathersList));
+  };
 
   setPickedWeatherID = id => {
     this.pickedWeatherID = id;

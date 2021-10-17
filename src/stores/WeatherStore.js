@@ -1,16 +1,27 @@
 import { observable, action, makeObservable } from 'mobx';
 
 class WeatherStore {
-  constructor() {
-    this.weathersList = [];
+  weathersList = [];
 
+  pickedWeatherID = 0;
+
+  constructor() {
     makeObservable(this, {
       weathersList: observable,
+      pickedWeatherID: observable,
+      showWeather: action,
       addWeather: action,
+      setPickedWeatherID: action,
     });
   }
 
-  addWeather = weather => this.weathersList.push(weather);
+  showWeather = id => this.weathersList.find(item => item.id === id);
+
+  addWeather = weather => this.weathersList.unshift(weather);
+
+  setPickedWeatherID = id => {
+    this.pickedWeatherID = id;
+  };
 }
 
 export default WeatherStore;

@@ -19,6 +19,7 @@
   }
 
   &__form {
+    position: relative;
     display: flex;
   }
 
@@ -58,6 +59,16 @@
     flex-grow: 1;
     margin-top: 30px;
     overflow-y: auto;
+  }
+
+  &__error {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    color: red;
   }
 
   &__list-element {

@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 import Navigation from './Navigation';
 import GeneralPanel from './GeneralPanel';
 
-const App = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
-
-  return (
-    <div className={classNames('wrapper')}>
-      <Navigation isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
-      <GeneralPanel setIsOpen={setIsMenuOpen} />
-    </div>
-  );
-};
+const App = () => (
+  <div className={classNames('wrapper')}>
+    <Navigation />
+    <GeneralPanel />
+  </div>
+);
 
 export default App;

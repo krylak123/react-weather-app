@@ -1,12 +1,14 @@
-/* eslint-disable arrow-body-style */
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
+import { useGeneralStore } from '../../stores/hooks';
 
 import TrackingIcon from '../../images/my_location_white_24dp.svg';
 
-const HeaderPanel = ({ setIsOpen }) => {
-  const handleSearchClick = () => setIsOpen(true);
+const HeaderPanel = () => {
+  const { setIsMenuOpen } = useGeneralStore();
+
+  const handleOnMenuClick = () => setIsMenuOpen();
 
   return (
     <header className={classNames('general__header')}>
@@ -16,7 +18,7 @@ const HeaderPanel = ({ setIsOpen }) => {
           'general__header-btn',
           'general__header-btn--search',
         )}
-        onClick={handleSearchClick}
+        onClick={handleOnMenuClick}
       >
         Search for place
       </button>
@@ -31,10 +33,6 @@ const HeaderPanel = ({ setIsOpen }) => {
       </button>
     </header>
   );
-};
-
-HeaderPanel.propTypes = {
-  setIsOpen: PropTypes.func.isRequired,
 };
 
 export default HeaderPanel;

@@ -1,25 +1,28 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import classNames from 'classnames';
+import { observer } from 'mobx-react-lite';
 
-import { useWeatherStore } from '../../stores/hooks';
-
-import ListElement from './ListElement';
+import { useGeneralStore } from '../../stores/hooks';
 
 import SearchIcon from '../../images/search_white_24dp.svg';
 
-const Navigation = ({ isOpen }) => {
-  const { weathersList } = useWeatherStore();
+// const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?q=';
+// const API_KEY = '8eaf87abb8fe060c80b95b1392bc6922';
 
-  const weathersListMap = weathersList.map(item => (
-    <ListElement key={item.id} {...item} />
-  ));
+const Navigation = () => {
+  const { isMenuOpen } = useGeneralStore();
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputValueChange = e => setInputValue(e.target.value);
+
+  const handleOnFormSubmit = e => {
+    e.preventDefault();
+  };
 
   return (
-    <nav className={classNames('menu', { 'menu--open': isOpen })}>
+    <nav className={classNames('menu', { 'menu--open': isMenuOpen })}>
       <h1 className={classNames('menu__title')}>Weather App</h1>
-      <form className={classNames('menu__form')}>
+      <form className={classNames('menu__form')} onSubmit={handleOnFormSubmit}>
         <label className={classNames('menu__label')} htmlFor="city">
           <img
             className={classNames('menu__icon')}
@@ -32,6 +35,8 @@ const Navigation = ({ isOpen }) => {
             name="city"
             id="city"
             placeholder="search location"
+            value={inputValue}
+            onChange={handleInputValueChange}
           />
         </label>
         <input
@@ -39,14 +44,13 @@ const Navigation = ({ isOpen }) => {
           type="submit"
           value="Search"
         />
+        {/* {isError ? (
+          <p className={classNames('menu__error')}>the city was not found</p>
+        ) : null} */}
       </form>
-      <ul className={classNames('menu__list-container')}>{weathersListMap}</ul>
+      {/* <ul className={classNames('menu__list-container')}>{weathersListMap}</ul> */}
     </nav>
   );
 };
 
-Navigation.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-};
-
-export default Navigation;
+export default observer(Navigation);

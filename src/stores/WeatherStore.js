@@ -1,5 +1,8 @@
 import { observable, action, makeObservable } from 'mobx';
 
+const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?id=';
+const API_KEY = '8eaf87abb8fe060c80b95b1392bc6922';
+
 class WeatherStore {
   weathersList = [];
 
@@ -9,10 +12,10 @@ class WeatherStore {
     makeObservable(this, {
       weathersList: observable,
       pickedWeatherID: observable,
+      loadDataFromLocalStorage: action,
       showWeather: action,
       addWeather: action,
       setPickedWeatherID: action,
-      loadDataFromLocalStorage: action,
     });
   }
 
@@ -20,7 +23,18 @@ class WeatherStore {
     const state = JSON.parse(localStorage.getItem('WEATHERS_LIST'));
 
     if (state) {
-      this.weathersList = state;
+      state.forEach(item => {
+        fetch(`${BASE_URL}${item.id}&appid=${API_KEY}&units=metric`)
+          .then(response => {
+            if (!response.ok) {
+              throw Error(`${response.status} - ${response.statusText}`);
+            } else {
+              return response.json();
+            }
+          })
+          .then(data => this.weathersList.unshift(data))
+          .catch(err => console.log(err));
+      });
     }
   };
 

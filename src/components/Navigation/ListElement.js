@@ -7,6 +7,8 @@ import { observer } from 'mobx-react-lite';
 
 import { useGeneralStore, useWeatherStore } from '../../stores/hooks';
 
+import CityIcon from '../../images/apartment_white_24dp.svg';
+
 const ListElement = ({ id, name }) => {
   const { setIsMenuOpen } = useGeneralStore();
   const { setPickedWeatherID } = useWeatherStore();
@@ -22,6 +24,7 @@ const ListElement = ({ id, name }) => {
       className={classNames('menu__list-element')}
       onClick={handleOnClick}
     >
+      <img src={CityIcon} alt="city icon" />
       <p className={classNames('menu__element-title')}>{name}</p>
     </li>
   );

@@ -8,6 +8,7 @@
   background-color: $background-color-secondary;
   transition: 0.2s;
   z-index: 10;
+  overflow: hidden;
 
   &--open {
     transform: translateY(0);
@@ -79,6 +80,10 @@
     padding: 20px 10px;
     border: 1px solid $btn-background-color-1;
     cursor: pointer;
+  }
+
+  &__element-title {
+    margin-right: 10px;
   }
 
   @include mq(xxsmall, port) {

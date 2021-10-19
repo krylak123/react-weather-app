@@ -4,7 +4,8 @@ import { observer } from 'mobx-react-lite';
 
 import { useWeatherStore } from '../../stores/hooks';
 
-import WeatherImg from '../../images/Shower.png';
+import pickWeatherIcon from '../../helpers/pickWeatherIcon';
+
 import LocationIcon from '../../images/location_on_white_24dp.svg';
 
 const Main = () => {
@@ -20,7 +21,7 @@ const Main = () => {
   let countryName = '';
 
   if (pickedWeather) {
-    icon = `https://openweathermap.org/img/wn/${pickedWeather.weather[0].icon}@2x.png`;
+    icon = pickWeatherIcon(pickedWeather.weather[0].description);
     temp = pickedWeather.main.temp.toFixed();
     description = pickedWeather.weather[0].description;
     date = new Date(pickedWeather.dt * 1000).toUTCString().slice(0, 11);
@@ -36,7 +37,7 @@ const Main = () => {
             <div className={classNames('general__img-container')}>
               <img
                 className={classNames('general__img')}
-                src={pickedWeather ? icon : WeatherImg}
+                src={icon}
                 alt="weather icon"
               />
             </div>

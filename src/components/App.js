@@ -5,6 +5,7 @@ import { useWeatherStore } from '../stores/hooks';
 
 import Navigation from './Navigation';
 import GeneralPanel from './GeneralPanel';
+import DetailsPanel from './DetailsPanel';
 
 const App = () => {
   const { loadDataFromLocalStorage } = useWeatherStore();
@@ -15,6 +16,7 @@ const App = () => {
     <div className={classNames('wrapper')}>
       <Navigation />
       <GeneralPanel />
+      <DetailsPanel />
     </div>
   );
 };

@@ -6553,6 +6553,9 @@ function WeatherStore_classCallCheck(instance, Constructor) { if (!(instance ins
 function WeatherStore_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
+configure({
+  enforceActions: 'never'
+});
 var BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?id=';
 var API_KEY = '8eaf87abb8fe060c80b95b1392bc6922';
 
@@ -7540,7 +7543,79 @@ var GeneralPanel = function GeneralPanel() {
 };
 
 /* harmony default export */ var components_GeneralPanel = (GeneralPanel);
+;// CONCATENATED MODULE: ./src/components/DetailsPanel/index.js
+
+
+
+
+
+var DetailsPanel = function DetailsPanel() {
+  var _useGeneralStore = useGeneralStore(),
+      isMenuOpen = _useGeneralStore.isMenuOpen;
+
+  var _useWeatherStore = useWeatherStore(),
+      showWeather = _useWeatherStore.showWeather,
+      pickedWeatherID = _useWeatherStore.pickedWeatherID;
+
+  var pickedWeather = showWeather(pickedWeatherID);
+  var wind = 0;
+  var humidity = 0;
+  var visibility = 0;
+  var pressure = 0;
+
+  if (pickedWeather) {
+    wind = pickedWeather.wind.speed;
+    humidity = pickedWeather.main.humidity;
+    visibility = pickedWeather.visibility;
+    pressure = pickedWeather.main.pressure;
+  }
+
+  return /*#__PURE__*/react.createElement("section", {
+    className: classnames_default()('details', {
+      'details--hidden': isMenuOpen
+    })
+  }, /*#__PURE__*/react.createElement("p", {
+    className: classnames_default()('details__title')
+  }, "Today's Hightlights"), /*#__PURE__*/react.createElement("div", {
+    className: classnames_default()('details__detail-container')
+  }, /*#__PURE__*/react.createElement("article", {
+    className: classnames_default()('detail')
+  }, /*#__PURE__*/react.createElement("p", {
+    className: classnames_default()('detail__title')
+  }, "Wind Status"), /*#__PURE__*/react.createElement("p", {
+    className: classnames_default()('detail__subtitle')
+  }, /*#__PURE__*/react.createElement("span", {
+    className: classnames_default()('detail__subtitle--value')
+  }, wind), "m/sec")), /*#__PURE__*/react.createElement("article", {
+    className: classnames_default()('detail')
+  }, /*#__PURE__*/react.createElement("p", {
+    className: classnames_default()('detail__title')
+  }, "Humidity"), /*#__PURE__*/react.createElement("p", {
+    className: classnames_default()('detail__subtitle')
+  }, /*#__PURE__*/react.createElement("span", {
+    className: classnames_default()('detail__subtitle--value')
+  }, humidity), "%")), /*#__PURE__*/react.createElement("article", {
+    className: classnames_default()('detail')
+  }, /*#__PURE__*/react.createElement("p", {
+    className: classnames_default()('detail__title')
+  }, "Visibility"), /*#__PURE__*/react.createElement("p", {
+    className: classnames_default()('detail__subtitle')
+  }, /*#__PURE__*/react.createElement("span", {
+    className: classnames_default()('detail__subtitle--value')
+  }, visibility), "m")), /*#__PURE__*/react.createElement("article", {
+    className: classnames_default()('detail')
+  }, /*#__PURE__*/react.createElement("p", {
+    className: classnames_default()('detail__title')
+  }, "Air Pressure"), /*#__PURE__*/react.createElement("p", {
+    className: classnames_default()('detail__subtitle')
+  }, /*#__PURE__*/react.createElement("span", {
+    className: classnames_default()('detail__subtitle--value')
+  }, pressure), "hPa"))));
+};
+
+/* harmony default export */ var components_DetailsPanel = (observer(DetailsPanel));
 ;// CONCATENATED MODULE: ./src/components/App.js
+
 
 
 
@@ -7556,7 +7631,7 @@ var App = function App() {
   }, []);
   return /*#__PURE__*/react.createElement("div", {
     className: classnames_default()('wrapper')
-  }, /*#__PURE__*/react.createElement(components_Navigation, null), /*#__PURE__*/react.createElement(components_GeneralPanel, null));
+  }, /*#__PURE__*/react.createElement(components_Navigation, null), /*#__PURE__*/react.createElement(components_GeneralPanel, null), /*#__PURE__*/react.createElement(components_DetailsPanel, null));
 };
 
 /* harmony default export */ var components_App = (App);

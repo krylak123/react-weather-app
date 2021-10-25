@@ -1,4 +1,8 @@
-import { observable, action, makeObservable } from 'mobx';
+import { configure, observable, action, makeObservable } from 'mobx';
+
+configure({
+  enforceActions: 'never',
+});
 
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?id=';
 const API_KEY = '8eaf87abb8fe060c80b95b1392bc6922';

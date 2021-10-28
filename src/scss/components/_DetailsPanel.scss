@@ -24,14 +24,18 @@
     }
   }
 
-  @include mq(medium, port) {
-    padding: 40px 30px;
+  @include mq(medium, land) {
+    padding: 100px 30px;
+  }
+
+  @include mq(large, land) {
+    padding: 150px 100px;
   }
 }
 
 .detail {
   margin-bottom: 30px;
-  padding: 20px 0;
+  padding: 20px 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,8 +51,64 @@
     }
   }
 
+  &__wind-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: $btn-background-color-1;
+    box-shadow: 0 0 5px 0 $btn-background-color-1,
+      0 0 10px 0 $btn-background-color-1, 0 0 20px 0 $btn-background-color-1;
+  }
+
+  &__progress-bar {
+    position: relative;
+    margin: 30px 0 10px;
+    width: 100%;
+    height: 10px;
+    border-radius: 50px;
+    background-color: $font-color-white;
+  }
+
+  &__progress-bar-fill {
+    position: absolute;
+    height: 100%;
+    border-radius: 50px;
+    background-color: $progress-bar-fill;
+  }
+
+  &__progress-bar-value {
+    position: absolute;
+    color: $font-color-grey;
+    font-weight: 700;
+
+    &--0 {
+      top: -20px;
+      left: 0;
+    }
+
+    &--50 {
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &--100 {
+      top: -20px;
+      right: 0;
+    }
+
+    &--char {
+      top: 15px;
+      right: 0;
+    }
+  }
+
   @include mq(xxsmall, port) {
-    padding: 30px 0;
+    padding: 30px 10px;
 
     &__subtitle {
       font-size: 2.5rem;
@@ -61,7 +121,7 @@
 
   @include mq(medium, land) {
     margin-bottom: 0;
-    padding: 40px 0;
+    padding: 40px 20px;
 
     &__subtitle {
       font-size: 2.7rem;

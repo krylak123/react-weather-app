@@ -4,6 +4,8 @@ import { observer } from 'mobx-react-lite';
 
 import { useGeneralStore, useWeatherStore } from '../../stores/hooks';
 
+import WindDirectionIcon from '../../images/arrow_upward_white_24dp.svg';
+
 const DetailsPanel = () => {
   const { isMenuOpen } = useGeneralStore();
 
@@ -11,13 +13,15 @@ const DetailsPanel = () => {
 
   const pickedWeather = showWeather(pickedWeatherID);
 
-  let wind = 0;
+  let windSpeed = 0;
+  let windDeg = 0;
   let humidity = 0;
   let visibility = 0;
   let pressure = 0;
 
   if (pickedWeather) {
-    wind = pickedWeather.wind.speed;
+    windSpeed = pickedWeather.wind.speed;
+    windDeg = pickedWeather.wind.deg;
     humidity = pickedWeather.main.humidity;
     visibility = pickedWeather.visibility;
     pressure = pickedWeather.main.pressure;
@@ -33,10 +37,20 @@ const DetailsPanel = () => {
           <p className={classNames('detail__title')}>Wind Status</p>
           <p className={classNames('detail__subtitle')}>
             <span className={classNames('detail__subtitle--value')}>
-              {wind}
+              {windSpeed}
             </span>
             m/sec
           </p>
+          <div
+            className={classNames('detail__wind-icon-container')}
+            style={{ transform: `rotate(${windDeg}deg)` }}
+          >
+            <img
+              className={classNames('detail__wind-icon')}
+              src={WindDirectionIcon}
+              alt="wind direction"
+            />
+          </div>
         </article>
         <article className={classNames('detail')}>
           <p className={classNames('detail__title')}>Humidity</p>
@@ -46,6 +60,40 @@ const DetailsPanel = () => {
             </span>
             %
           </p>
+          <div className={classNames('detail__progress-bar')}>
+            <span
+              className={classNames('detail__progress-bar-fill')}
+              style={{ width: `${humidity}%` }}
+            />
+            <span
+              className={classNames(
+                'detail__progress-bar-value detail__progress-bar-value--0',
+              )}
+            >
+              0
+            </span>
+            <span
+              className={classNames(
+                'detail__progress-bar-value detail__progress-bar-value--50',
+              )}
+            >
+              50
+            </span>
+            <span
+              className={classNames(
+                'detail__progress-bar-value detail__progress-bar-value--100',
+              )}
+            >
+              100
+            </span>
+            <span
+              className={classNames(
+                'detail__progress-bar-value detail__progress-bar-value--char',
+              )}
+            >
+              %
+            </span>
+          </div>
         </article>
         <article className={classNames('detail')}>
           <p className={classNames('detail__title')}>Visibility</p>

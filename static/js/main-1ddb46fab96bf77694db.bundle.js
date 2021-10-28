@@ -771,6 +771,14 @@ module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5v
 
 /***/ }),
 
+/***/ 124:
+/***/ (function(module) {
+
+"use strict";
+module.exports = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iI0ZGRkZGRiI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTQgMTJsMS40MSAxLjQxTDExIDcuODNWMjBoMlY3LjgzbDUuNTggNS41OUwyMCAxMmwtOC04LTggOHoiLz48L3N2Zz4=";
+
+/***/ }),
+
 /***/ 846:
 /***/ (function(module) {
 
@@ -7543,7 +7551,10 @@ var GeneralPanel = function GeneralPanel() {
 };
 
 /* harmony default export */ var components_GeneralPanel = (GeneralPanel);
+// EXTERNAL MODULE: ./src/images/arrow_upward_white_24dp.svg
+var arrow_upward_white_24dp = __webpack_require__(124);
 ;// CONCATENATED MODULE: ./src/components/DetailsPanel/index.js
+
 
 
 
@@ -7558,13 +7569,15 @@ var DetailsPanel = function DetailsPanel() {
       pickedWeatherID = _useWeatherStore.pickedWeatherID;
 
   var pickedWeather = showWeather(pickedWeatherID);
-  var wind = 0;
+  var windSpeed = 0;
+  var windDeg = 0;
   var humidity = 0;
   var visibility = 0;
   var pressure = 0;
 
   if (pickedWeather) {
-    wind = pickedWeather.wind.speed;
+    windSpeed = pickedWeather.wind.speed;
+    windDeg = pickedWeather.wind.deg;
     humidity = pickedWeather.main.humidity;
     visibility = pickedWeather.visibility;
     pressure = pickedWeather.main.pressure;
@@ -7586,7 +7599,16 @@ var DetailsPanel = function DetailsPanel() {
     className: classnames_default()('detail__subtitle')
   }, /*#__PURE__*/react.createElement("span", {
     className: classnames_default()('detail__subtitle--value')
-  }, wind), "m/sec")), /*#__PURE__*/react.createElement("article", {
+  }, windSpeed), "m/sec"), /*#__PURE__*/react.createElement("div", {
+    className: classnames_default()('detail__wind-icon-container'),
+    style: {
+      transform: "rotate(".concat(windDeg, "deg)")
+    }
+  }, /*#__PURE__*/react.createElement("img", {
+    className: classnames_default()('detail__wind-icon'),
+    src: arrow_upward_white_24dp,
+    alt: "wind direction"
+  }))), /*#__PURE__*/react.createElement("article", {
     className: classnames_default()('detail')
   }, /*#__PURE__*/react.createElement("p", {
     className: classnames_default()('detail__title')
@@ -7594,7 +7616,22 @@ var DetailsPanel = function DetailsPanel() {
     className: classnames_default()('detail__subtitle')
   }, /*#__PURE__*/react.createElement("span", {
     className: classnames_default()('detail__subtitle--value')
-  }, humidity), "%")), /*#__PURE__*/react.createElement("article", {
+  }, humidity), "%"), /*#__PURE__*/react.createElement("div", {
+    className: classnames_default()('detail__progress-bar')
+  }, /*#__PURE__*/react.createElement("span", {
+    className: classnames_default()('detail__progress-bar-fill'),
+    style: {
+      width: "".concat(humidity, "%")
+    }
+  }), /*#__PURE__*/react.createElement("span", {
+    className: classnames_default()('detail__progress-bar-value detail__progress-bar-value--0')
+  }, "0"), /*#__PURE__*/react.createElement("span", {
+    className: classnames_default()('detail__progress-bar-value detail__progress-bar-value--50')
+  }, "50"), /*#__PURE__*/react.createElement("span", {
+    className: classnames_default()('detail__progress-bar-value detail__progress-bar-value--100')
+  }, "100"), /*#__PURE__*/react.createElement("span", {
+    className: classnames_default()('detail__progress-bar-value detail__progress-bar-value--char')
+  }, "%"))), /*#__PURE__*/react.createElement("article", {
     className: classnames_default()('detail')
   }, /*#__PURE__*/react.createElement("p", {
     className: classnames_default()('detail__title')

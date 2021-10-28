@@ -7375,13 +7375,48 @@ var my_location_white_24dp = __webpack_require__(302);
 
 
 
+var Header_BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?';
+var Header_API_KEY = '8eaf87abb8fe060c80b95b1392bc6922';
 
 var HeaderPanel = function HeaderPanel() {
   var _useGeneralStore = useGeneralStore(),
       setIsMenuOpen = _useGeneralStore.setIsMenuOpen;
 
+  var _useWeatherStore = useWeatherStore(),
+      weathersList = _useWeatherStore.weathersList,
+      addWeather = _useWeatherStore.addWeather,
+      setPickedWeatherID = _useWeatherStore.setPickedWeatherID;
+
   var handleOnMenuClick = function handleOnMenuClick() {
     return setIsMenuOpen();
+  };
+
+  var getCoordsSuccess = function getCoordsSuccess(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    fetch("".concat(Header_BASE_URL, "lat=").concat(latitude, "&lon=").concat(longitude, "&appid=").concat(Header_API_KEY, "&units=metric")).then(function (response) {
+      if (!response.ok) {
+        throw Error("".concat(response.status, " - ").concat(response.statusText));
+      } else {
+        return response.json();
+      }
+    }).then(function (data) {
+      if (weathersList.find(function (item) {
+        return item.id === data.id;
+      })) return;
+      addWeather(data);
+      setPickedWeatherID(data.id);
+    }).catch(function (err) {
+      console.log(err);
+    });
+  };
+
+  var getCoordsError = function getCoordsError() {
+    throw new Error("can't get your location");
+  };
+
+  var handleOnTrackClick = function handleOnTrackClick() {
+    navigator.geolocation.getCurrentPosition(getCoordsSuccess, getCoordsError);
   };
 
   return /*#__PURE__*/react.createElement("header", {
@@ -7392,7 +7427,8 @@ var HeaderPanel = function HeaderPanel() {
     onClick: handleOnMenuClick
   }, "Search for place"), /*#__PURE__*/react.createElement("button", {
     type: "button",
-    className: classnames_default()('general__header-btn', 'general__header-btn--tracking')
+    className: classnames_default()('general__header-btn', 'general__header-btn--tracking'),
+    onClick: handleOnTrackClick
   }, /*#__PURE__*/react.createElement("img", {
     src: my_location_white_24dp,
     alt: "tracking your location"

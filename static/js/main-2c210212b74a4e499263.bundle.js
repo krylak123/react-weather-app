@@ -6651,9 +6651,6 @@ var StoreProvider = function StoreProvider(_ref) {
 };
 
 /* harmony default export */ var stores_StoreProvider = (StoreProvider);
-// EXTERNAL MODULE: ./node_modules/classnames/index.js
-var classnames = __webpack_require__(184);
-var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
 ;// CONCATENATED MODULE: ./src/stores/hooks.js
 /* eslint-disable import/prefer-default-export */
 
@@ -6668,6 +6665,9 @@ function useWeatherStore() {
   if (!rootStore) throw new Error('error');
   return rootStore.weatherStore;
 }
+// EXTERNAL MODULE: ./node_modules/classnames/index.js
+var classnames = __webpack_require__(184);
+var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
 ;// CONCATENATED MODULE: ./node_modules/mobx-react-lite/es/utils/assertEnvironment.js
 
 
@@ -7216,7 +7216,6 @@ var apartment_white_24dp = __webpack_require__(890);
 
 
 
-
 var ListElement = function ListElement(_ref) {
   var id = _ref.id,
       name = _ref.name;
@@ -7234,13 +7233,13 @@ var ListElement = function ListElement(_ref) {
 
   return /*#__PURE__*/react.createElement("li", {
     "data-id": String(id),
-    className: classnames_default()('menu__list-element'),
+    className: "menu__list-element",
     onClick: handleOnClick
   }, /*#__PURE__*/react.createElement("img", {
     src: apartment_white_24dp,
     alt: "city icon"
   }), /*#__PURE__*/react.createElement("p", {
-    className: classnames_default()('menu__element-title')
+    className: "menu__element-title"
   }, name));
 };
 
@@ -7337,19 +7336,19 @@ var Navigation = function Navigation() {
       'menu--open': isMenuOpen
     })
   }, /*#__PURE__*/react.createElement("h1", {
-    className: classnames_default()('menu__title')
+    className: "menu__title"
   }, "Weather App"), /*#__PURE__*/react.createElement("form", {
-    className: classnames_default()('menu__form'),
+    className: "menu__form",
     onSubmit: handleOnFormSubmit
   }, /*#__PURE__*/react.createElement("label", {
-    className: classnames_default()('menu__label'),
+    className: "menu__label",
     htmlFor: "city"
   }, /*#__PURE__*/react.createElement("img", {
-    className: classnames_default()('menu__icon'),
+    className: "menu__icon",
     src: search_white_24dp,
     alt: "search icon"
   }), /*#__PURE__*/react.createElement("input", {
-    className: classnames_default()('menu__input'),
+    className: "menu__input",
     type: "text",
     name: "city",
     id: "city",
@@ -7357,13 +7356,13 @@ var Navigation = function Navigation() {
     value: inputValue,
     onChange: handleInputValueChange
   })), /*#__PURE__*/react.createElement("input", {
-    className: classnames_default()('menu__input menu__input--btn'),
+    className: "menu__input menu__input--btn",
     type: "submit",
     value: "Search"
   }), isError ? /*#__PURE__*/react.createElement("p", {
-    className: classnames_default()('menu__error')
+    className: "menu__error"
   }, "the city was not found") : null), /*#__PURE__*/react.createElement("ul", {
-    className: classnames_default()('menu__list-container')
+    className: "menu__list-container"
   }, weathersListMap));
 };
 
@@ -7420,7 +7419,7 @@ var HeaderPanel = function HeaderPanel() {
   };
 
   return /*#__PURE__*/react.createElement("header", {
-    className: classnames_default()('general__header')
+    className: "general__header"
   }, /*#__PURE__*/react.createElement("button", {
     type: "button",
     className: classnames_default()('general__header-btn', 'general__header-btn--search'),
@@ -7507,7 +7506,6 @@ var location_on_white_24dp = __webpack_require__(846);
 
 
 
-
 var Main = function Main() {
   var _useWeatherStore = useWeatherStore(),
       showWeather = _useWeatherStore.showWeather,
@@ -7531,38 +7529,38 @@ var Main = function Main() {
   }
 
   return /*#__PURE__*/react.createElement(react.Fragment, null, !pickedWeather ? null : /*#__PURE__*/react.createElement("main", {
-    className: classnames_default()('general__main')
+    className: "general__main"
   }, /*#__PURE__*/react.createElement("div", {
-    className: classnames_default()('general__content-container')
+    className: "general__content-container"
   }, /*#__PURE__*/react.createElement("div", {
-    className: classnames_default()('general__img-container')
+    className: "general__img-container"
   }, /*#__PURE__*/react.createElement("img", {
-    className: classnames_default()('general__img'),
+    className: "general__img",
     src: icon,
     alt: "weather icon"
   })), /*#__PURE__*/react.createElement("h1", {
-    className: classnames_default()('general__title')
+    className: "general__title"
   }, /*#__PURE__*/react.createElement("span", {
-    className: classnames_default()('general__title general__title--value')
+    className: "general__title general__title--value"
   }, temp), "*C")), /*#__PURE__*/react.createElement("div", {
-    className: classnames_default()('general__content-container')
+    className: "general__content-container"
   }, /*#__PURE__*/react.createElement("h2", {
-    className: classnames_default()('general__subtitle')
+    className: "general__subtitle"
   }, description), /*#__PURE__*/react.createElement("div", {
-    className: classnames_default()('general__date-container')
+    className: "general__date-container"
   }, /*#__PURE__*/react.createElement("p", {
-    className: classnames_default()('general__date')
+    className: "general__date"
   }, "Today"), /*#__PURE__*/react.createElement("span", {
-    className: classnames_default()('general__date-dot')
+    className: "general__date-dot"
   }), /*#__PURE__*/react.createElement("p", {
-    className: classnames_default()('general__date')
+    className: "general__date"
   }, date)), /*#__PURE__*/react.createElement("div", {
-    className: classnames_default()('general__city-container')
+    className: "general__city-container"
   }, /*#__PURE__*/react.createElement("img", {
     src: location_on_white_24dp,
     alt: "location icon"
   }), /*#__PURE__*/react.createElement("h3", {
-    className: classnames_default()('general__city')
+    className: "general__city"
   }, "".concat(cityName, "\n                ,\n              ").concat(countryName))))));
 };
 
@@ -7575,12 +7573,11 @@ var Cloud_background = __webpack_require__(505);
 
 
 
-
 var GeneralPanel = function GeneralPanel() {
   return /*#__PURE__*/react.createElement("section", {
-    className: classnames_default()('general')
+    className: "general"
   }, /*#__PURE__*/react.createElement("img", {
-    className: classnames_default()('general__background'),
+    className: "general__background",
     src: Cloud_background,
     alt: "clouds in background"
   }), /*#__PURE__*/react.createElement(Header, null), /*#__PURE__*/react.createElement(GeneralPanel_Main, null));
@@ -7624,71 +7621,70 @@ var DetailsPanel = function DetailsPanel() {
       'details--hidden': isMenuOpen
     })
   }, /*#__PURE__*/react.createElement("p", {
-    className: classnames_default()('details__title')
+    className: "details__title"
   }, "Today's Hightlights"), /*#__PURE__*/react.createElement("div", {
-    className: classnames_default()('details__detail-container')
+    className: "details__detail-container"
   }, /*#__PURE__*/react.createElement("article", {
-    className: classnames_default()('detail')
+    className: "detail"
   }, /*#__PURE__*/react.createElement("p", {
-    className: classnames_default()('detail__title')
+    className: "detail__title"
   }, "Wind Status"), /*#__PURE__*/react.createElement("p", {
-    className: classnames_default()('detail__subtitle')
+    className: "detail__subtitle"
   }, /*#__PURE__*/react.createElement("span", {
-    className: classnames_default()('detail__subtitle--value')
+    className: "detail__subtitle--value"
   }, windSpeed), "m/sec"), /*#__PURE__*/react.createElement("div", {
-    className: classnames_default()('detail__wind-icon-container'),
+    className: "detail__wind-icon-container",
     style: {
       transform: "rotate(".concat(windDeg, "deg)")
     }
   }, /*#__PURE__*/react.createElement("img", {
-    className: classnames_default()('detail__wind-icon'),
+    className: "detail__wind-icon",
     src: arrow_upward_white_24dp,
     alt: "wind direction"
   }))), /*#__PURE__*/react.createElement("article", {
-    className: classnames_default()('detail')
+    className: "detail"
   }, /*#__PURE__*/react.createElement("p", {
-    className: classnames_default()('detail__title')
+    className: "detail__title"
   }, "Humidity"), /*#__PURE__*/react.createElement("p", {
-    className: classnames_default()('detail__subtitle')
+    className: "detail__subtitle"
   }, /*#__PURE__*/react.createElement("span", {
-    className: classnames_default()('detail__subtitle--value')
+    className: "detail__subtitle--value"
   }, humidity), "%"), /*#__PURE__*/react.createElement("div", {
-    className: classnames_default()('detail__progress-bar')
+    className: "detail__progress-bar"
   }, /*#__PURE__*/react.createElement("span", {
-    className: classnames_default()('detail__progress-bar-fill'),
+    className: "detail__progress-bar-fill",
     style: {
       width: "".concat(humidity, "%")
     }
   }), /*#__PURE__*/react.createElement("span", {
-    className: classnames_default()('detail__progress-bar-value detail__progress-bar-value--0')
+    className: classnames_default()('detail__progress-bar-value', 'detail__progress-bar-value--0')
   }, "0"), /*#__PURE__*/react.createElement("span", {
-    className: classnames_default()('detail__progress-bar-value detail__progress-bar-value--50')
+    className: classnames_default()('detail__progress-bar-value', 'detail__progress-bar-value--50')
   }, "50"), /*#__PURE__*/react.createElement("span", {
-    className: classnames_default()('detail__progress-bar-value detail__progress-bar-value--100')
+    className: classnames_default()('detail__progress-bar-value', 'detail__progress-bar-value--100')
   }, "100"), /*#__PURE__*/react.createElement("span", {
-    className: classnames_default()('detail__progress-bar-value detail__progress-bar-value--char')
+    className: classnames_default()('detail__progress-bar-value', 'detail__progress-bar-value--char')
   }, "%"))), /*#__PURE__*/react.createElement("article", {
-    className: classnames_default()('detail')
+    className: "detail"
   }, /*#__PURE__*/react.createElement("p", {
-    className: classnames_default()('detail__title')
+    className: "detail__title"
   }, "Visibility"), /*#__PURE__*/react.createElement("p", {
-    className: classnames_default()('detail__subtitle')
+    className: "detail__subtitle"
   }, /*#__PURE__*/react.createElement("span", {
-    className: classnames_default()('detail__subtitle--value')
+    className: "detail__subtitle--value"
   }, visibility), "m")), /*#__PURE__*/react.createElement("article", {
-    className: classnames_default()('detail')
+    className: "detail"
   }, /*#__PURE__*/react.createElement("p", {
-    className: classnames_default()('detail__title')
+    className: "detail__title"
   }, "Air Pressure"), /*#__PURE__*/react.createElement("p", {
-    className: classnames_default()('detail__subtitle')
+    className: "detail__subtitle"
   }, /*#__PURE__*/react.createElement("span", {
-    className: classnames_default()('detail__subtitle--value')
+    className: "detail__subtitle--value"
   }, pressure), "hPa"))));
 };
 
 /* harmony default export */ var components_DetailsPanel = (observer(DetailsPanel));
 ;// CONCATENATED MODULE: ./src/components/App.js
-
 
 
 
@@ -7703,7 +7699,7 @@ var App = function App() {
     return loadDataFromLocalStorage();
   }, []);
   return /*#__PURE__*/react.createElement("div", {
-    className: classnames_default()('wrapper')
+    className: "wrapper"
   }, /*#__PURE__*/react.createElement(components_Navigation, null), /*#__PURE__*/react.createElement(components_GeneralPanel, null), /*#__PURE__*/react.createElement(components_DetailsPanel, null));
 };
 

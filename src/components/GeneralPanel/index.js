@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 
 import Header from './Header';
 import Main from './Main';
@@ -7,12 +6,8 @@ import Main from './Main';
 import BackgroundImage from '../../images/Cloud-background.png';
 
 const GeneralPanel = () => (
-  <section className={classNames('general')}>
-    <img
-      className={classNames('general__background')}
-      src={BackgroundImage}
-      alt="clouds in background"
-    />
+  <section className="general">
+    <img className="general__background" src={BackgroundImage} alt="clouds in background" />
     <Header />
     <Main />
   </section>

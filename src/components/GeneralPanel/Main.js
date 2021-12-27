@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import { observer } from 'mobx-react-lite';
 
 import { useWeatherStore } from '../../stores/hooks';
@@ -32,34 +31,26 @@ const Main = () => {
   return (
     <>
       {!pickedWeather ? null : (
-        <main className={classNames('general__main')}>
-          <div className={classNames('general__content-container')}>
-            <div className={classNames('general__img-container')}>
-              <img
-                className={classNames('general__img')}
-                src={icon}
-                alt="weather icon"
-              />
+        <main className="general__main">
+          <div className="general__content-container">
+            <div className="general__img-container">
+              <img className="general__img" src={icon} alt="weather icon" />
             </div>
-            <h1 className={classNames('general__title')}>
-              <span
-                className={classNames('general__title general__title--value')}
-              >
-                {temp}
-              </span>
+            <h1 className="general__title">
+              <span className="general__title general__title--value">{temp}</span>
               *C
             </h1>
           </div>
-          <div className={classNames('general__content-container')}>
-            <h2 className={classNames('general__subtitle')}>{description}</h2>
-            <div className={classNames('general__date-container')}>
-              <p className={classNames('general__date')}>Today</p>
-              <span className={classNames('general__date-dot')} />
-              <p className={classNames('general__date')}>{date}</p>
+          <div className="general__content-container">
+            <h2 className="general__subtitle">{description}</h2>
+            <div className="general__date-container">
+              <p className="general__date">Today</p>
+              <span className="general__date-dot" />
+              <p className="general__date">{date}</p>
             </div>
-            <div className={classNames('general__city-container')}>
+            <div className="general__city-container">
               <img src={LocationIcon} alt="location icon" />
-              <h3 className={classNames('general__city')}>
+              <h3 className="general__city">
                 {`${cityName}
                 ,
               ${countryName}`}

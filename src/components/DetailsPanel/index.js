@@ -28,88 +28,67 @@ const DetailsPanel = () => {
   }
 
   return (
-    <section
-      className={classNames('details', { 'details--hidden': isMenuOpen })}
-    >
-      <p className={classNames('details__title')}>Today&apos;s Hightlights</p>
-      <div className={classNames('details__detail-container')}>
-        <article className={classNames('detail')}>
-          <p className={classNames('detail__title')}>Wind Status</p>
-          <p className={classNames('detail__subtitle')}>
-            <span className={classNames('detail__subtitle--value')}>
-              {windSpeed}
-            </span>
+    <section className={classNames('details', { 'details--hidden': isMenuOpen })}>
+      <p className="details__title">Today&apos;s Hightlights</p>
+      <div className="details__detail-container">
+        <article className="detail">
+          <p className="detail__title">Wind Status</p>
+          <p className="detail__subtitle">
+            <span className="detail__subtitle--value">{windSpeed}</span>
             m/sec
           </p>
           <div
-            className={classNames('detail__wind-icon-container')}
+            className="detail__wind-icon-container"
             style={{ transform: `rotate(${windDeg}deg)` }}
           >
-            <img
-              className={classNames('detail__wind-icon')}
-              src={WindDirectionIcon}
-              alt="wind direction"
-            />
+            <img className="detail__wind-icon" src={WindDirectionIcon} alt="wind direction" />
           </div>
         </article>
-        <article className={classNames('detail')}>
-          <p className={classNames('detail__title')}>Humidity</p>
-          <p className={classNames('detail__subtitle')}>
-            <span className={classNames('detail__subtitle--value')}>
-              {humidity}
-            </span>
-            %
+        <article className="detail">
+          <p className="detail__title">Humidity</p>
+          <p className="detail__subtitle">
+            <span className="detail__subtitle--value">{humidity}</span>%
           </p>
-          <div className={classNames('detail__progress-bar')}>
+          <div className="detail__progress-bar">
+            <span className="detail__progress-bar-fill" style={{ width: `${humidity}%` }} />
             <span
-              className={classNames('detail__progress-bar-fill')}
-              style={{ width: `${humidity}%` }}
-            />
-            <span
-              className={classNames(
-                'detail__progress-bar-value detail__progress-bar-value--0',
-              )}
+              className={classNames('detail__progress-bar-value', 'detail__progress-bar-value--0')}
             >
               0
             </span>
             <span
-              className={classNames(
-                'detail__progress-bar-value detail__progress-bar-value--50',
-              )}
+              className={classNames('detail__progress-bar-value', 'detail__progress-bar-value--50')}
             >
               50
             </span>
             <span
               className={classNames(
-                'detail__progress-bar-value detail__progress-bar-value--100',
+                'detail__progress-bar-value',
+                'detail__progress-bar-value--100',
               )}
             >
               100
             </span>
             <span
               className={classNames(
-                'detail__progress-bar-value detail__progress-bar-value--char',
+                'detail__progress-bar-value',
+                'detail__progress-bar-value--char',
               )}
             >
               %
             </span>
           </div>
         </article>
-        <article className={classNames('detail')}>
-          <p className={classNames('detail__title')}>Visibility</p>
-          <p className={classNames('detail__subtitle')}>
-            <span className={classNames('detail__subtitle--value')}>
-              {visibility}
-            </span>
-            m
+        <article className="detail">
+          <p className="detail__title">Visibility</p>
+          <p className="detail__subtitle">
+            <span className="detail__subtitle--value">{visibility}</span>m
           </p>
         </article>
-        <article className={classNames('detail')}>
-          <p className={classNames('detail__title')}>Air Pressure</p>
-          <p className={classNames('detail__subtitle')}>
-            <span className={classNames('detail__subtitle--value')}>
-              {pressure}
-            </span>
+        <article className="detail">
+          <p className="detail__title">Air Pressure</p>
+          <p className="detail__subtitle">
+            <span className="detail__subtitle--value">{pressure}</span>
             hPa
           </p>
         </article>

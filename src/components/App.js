@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import classNames from 'classnames';
 
 import { useWeatherStore } from '../stores/hooks';
 
@@ -13,7 +12,7 @@ const App = () => {
   useEffect(() => loadDataFromLocalStorage(), []);
 
   return (
-    <div className={classNames('wrapper')}>
+    <div className="wrapper">
       <Navigation />
       <GeneralPanel />
       <DetailsPanel />

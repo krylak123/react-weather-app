@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { observer } from 'mobx-react-lite';
 
 import { useGeneralStore, useWeatherStore } from '../../stores/hooks';
@@ -19,13 +18,9 @@ const ListElement = ({ id, name }) => {
   };
 
   return (
-    <li
-      data-id={String(id)}
-      className={classNames('menu__list-element')}
-      onClick={handleOnClick}
-    >
+    <li data-id={String(id)} className="menu__list-element" onClick={handleOnClick}>
       <img src={CityIcon} alt="city icon" />
-      <p className={classNames('menu__element-title')}>{name}</p>
+      <p className="menu__element-title">{name}</p>
     </li>
   );
 };

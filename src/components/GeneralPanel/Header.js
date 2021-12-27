@@ -18,9 +18,7 @@ const HeaderPanel = () => {
     const { latitude } = position.coords;
     const { longitude } = position.coords;
 
-    fetch(
-      `${BASE_URL}lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`,
-    )
+    fetch(`${BASE_URL}lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`)
       .then(response => {
         if (!response.ok) {
           throw Error(`${response.status} - ${response.statusText}`);
@@ -48,23 +46,17 @@ const HeaderPanel = () => {
   };
 
   return (
-    <header className={classNames('general__header')}>
+    <header className="general__header">
       <button
         type="button"
-        className={classNames(
-          'general__header-btn',
-          'general__header-btn--search',
-        )}
+        className={classNames('general__header-btn', 'general__header-btn--search')}
         onClick={handleOnMenuClick}
       >
         Search for place
       </button>
       <button
         type="button"
-        className={classNames(
-          'general__header-btn',
-          'general__header-btn--tracking',
-        )}
+        className={classNames('general__header-btn', 'general__header-btn--tracking')}
         onClick={handleOnTrackClick}
       >
         <img src={TrackingIcon} alt="tracking your location" />
